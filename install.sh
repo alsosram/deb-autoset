@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+show_banner() {
+  echo "    _    ____   ___  ____    _    ____       ____  _____ ____          _   _   _ _____ ___  "
+  echo "   / \  / ___| / _ \/ ___|  / \  |  _ \     |  _ \| ____| __ )        / \ | | | |_   _/ _ \ "
+  echo "  / _ \ \___ \| | | \___ \ / _ \ | |_) |____| | | |  _| |  _ \ _____ / _ \| | | | | || | | |"
+  echo " / ___ \ ___) | |_| |___) / ___ \|  _ <_____| |_| | |___| |_) |_____/ ___ \ |_| | | || |_| |"
+  echo "/_/   \_\____/ \___/|____/_/   \_\_| \_\    |____/|_____|____/     /_/   \_\___/  |_| \___/ "
+  echo ""
+  echo "             Debian Auto-Installer — Sudo, Tools & Cockpit"
+  echo ""
+}
+
+show_banner
+
 SUDO_USER_NAME="${1:-asosar}"
 SUDOERS_FILE="/etc/sudoers.d/${SUDO_USER_NAME}"
 NETWORKMANAGER_CONF="/etc/NetworkManager/NetworkManager.conf"

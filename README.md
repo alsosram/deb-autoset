@@ -1,4 +1,12 @@
-# Debian Bootstrap Installer
+```
+    _    ____   ___  ____    _    ____       ____  _____ ____          _   _   _ _____ ___  
+   / \  / ___| / _ \/ ___|  / \  |  _ \     |  _ \| ____| __ )        / \ | | | |_   _/ _ \ 
+  / _ \ \___ \| | | \___ \ / _ \ | |_) |____| | | |  _| |  _ \ _____ / _ \| | | | | || | | |
+ / ___ \ ___) | |_| |___) / ___ \|  _ <_____| |_| | |___| |_) |_____/ ___ \ |_| | | || |_| |
+/_/   \_\____/ \___/|____/_/   \_\_| \_\    |____/|_____|____/     /_/   \_\___/  |_| \___/ 
+```
+
+# asosar-deb-auto
 
 A small Debian setup script for installing common administration tools and granting sudo access to a user.
 
@@ -32,30 +40,19 @@ On a fresh Debian system, run as `root`:
 
 ```bash
 su -
-bash debian-bootstrap.sh
+bash install.sh
 ```
 
 To configure sudo for a different user:
 
 ```bash
 su -
-bash debian-bootstrap.sh your_username
+bash install.sh your_username
 ```
 
 ## Download And Run From GitHub
 
-After this project is pushed to GitHub, you can run it on Debian like this:
-
 ```bash
-curl -fsSL https://raw.githubusercontent.com/asosar2195/debian-bootstrap-installer/main/debian-bootstrap.sh -o debian-bootstrap.sh
-bash debian-bootstrap.sh
+curl -fsSL https://raw.githubusercontent.com/asosar2195/asosar-deb-auto/main/install.sh -o install.sh
+bash install.sh
 ```
-
-## Publish With GitHub Desktop
-
-1. Open GitHub Desktop.
-2. Choose **File > Add local repository**.
-3. Select this folder.
-4. If GitHub Desktop says it is not a Git repository yet, choose **Create a repository**.
-5. Commit the files.
-6. Click **Publish repository**.
