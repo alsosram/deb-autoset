@@ -8,7 +8,7 @@
 
 # asosar-deb-auto
 
-A small Debian setup script for installing common administration tools and granting sudo access to a user.
+Debian setup script that auto-detects the first non-root user and configures sudo, Cockpit, cockpit-files, and SSH.
 
 ## What It Installs
 
@@ -16,14 +16,16 @@ A small Debian setup script for installing common administration tools and grant
 - `net-tools`
 - `curl`
 - `cockpit`
+- `cockpit-files`
+- `openssh-server` (if not already present)
 
-It also creates a sudoers rule for `asosar` by default:
+It also creates a sudoers rule for the detected user (or the one passed as an argument):
 
 ```text
-asosar ALL=(ALL:ALL) ALL
+<username> ALL=(ALL:ALL) ALL
 ```
 
-The script writes this rule to `/etc/sudoers.d/asosar` and validates it with `visudo` instead of editing `/etc/sudoers` directly.
+The script writes this rule to `/etc/sudoers.d/<username>` and validates it with `visudo` instead of editing `/etc/sudoers` directly.
 
 It also configures NetworkManager so Cockpit can manage ifupdown interfaces by setting this in `/etc/NetworkManager/NetworkManager.conf`:
 
@@ -36,14 +38,14 @@ The original NetworkManager config is backed up to `/etc/NetworkManager/NetworkM
 
 ## Usage
 
-On a fresh Debian system, run as `root`:
+On a fresh Debian system with a non-root user already created, run as `root`:
 
 ```bash
 su -
 bash install.sh
 ```
 
-To configure sudo for a different user:
+The script will automatically detect the first non-root user (UID >= 1000). To override:
 
 ```bash
 su -
