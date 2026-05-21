@@ -133,6 +133,8 @@ if command -v systemctl >/dev/null 2>&1; then
   if systemctl cat NetworkManager.service >/dev/null 2>&1; then
     echo "Restarting NetworkManager..."
     systemctl restart NetworkManager
+    echo "Migrating connections to keyfile backend for Cockpit compatibility..."
+    nmcli con migrate 2>/dev/null || true
   else
     echo "NetworkManager service not found; config was updated but service was not restarted."
   fi
